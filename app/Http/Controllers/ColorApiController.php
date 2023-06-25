@@ -17,7 +17,7 @@ class ColorApiController extends Controller
         //     'Authorization' => 'key ' . $apiKey,
         // ])->get('https://rebrickable.com/api/v3/lego/colors');
 
-        $response = Http::withOptions(['verify' => false])->get('https://rebrickable.com/api/v3/lego/colors/?page_size=300&key=' . $apiKey);
+        $response = Http::withOptions(['verify' => false])->get('https://rebrickable.com/api/v3/lego/colors/?page_size=300&ordering=name&key=' . $apiKey);
         $data = json_decode($response);
         $data = $data->results;
         echo '<pre>';
